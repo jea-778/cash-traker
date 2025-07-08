@@ -1,9 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TransactionForm from './components/TransactionForm';
 import { TransactionList } from './components/TransactionList';
+import Filter from './components/Filter';
+import Header from './components/Header';
 
 function App() {
-  const [transactions, setTransactions] = useState([]);
+  const [filter, setFilter] = useState("")
+  const [transactions, setTransactions] = useState(() => {
+    const saveTransaction = localStorage.getItem("Transaction")
+    return saveTransaction ? JSON.parse(saveTransaction) : []
+  });
+
+  useEffect(() => {
+    localStorage.setItem("Transaction", JSON.stringify(transactions))
+  }, [transactions])
+
 
   const handleAddTransaction = (tx) => {
     setTransactions((prev) => [tx, ...prev]);
@@ -16,20 +27,13 @@ function App() {
   return (
     <div className='flex justify-center w-full h-full my-20'>
       <div className='w-5/6 py-7 px-9 border border-gray-200 shadow-md'>
-        <header className='mb-6'>
-          <h1 className='text-2xl font-semibold font-inter text-emerald-600'>CASH TRACKER</h1>
-          <p className='text-xl text-slate-300'>
-            Tambahkan uang anda dan kelola dengan baik menggunakan <span className='font-bold'>Cash Tracker</span>
-          </p>
-        </header>
+        <Header />
 
-        <section>
-          <TransactionForm onAddTransaction={handleAddTransaction} />
-        </section>
+        <TransactionForm onAddTransaction={handleAddTransaction} />
 
-        <section>
-          <TransactionList transactions={transactions} onDelete={handleDeleteTransaction} />
-        </section>
+        <Filter filter={filter} setFilter={setFilter} />
+
+        <TransactionList transactions={transactions} onDelete={handleDeleteTransaction} filter={filter} />
       </div>
     </div>
   );
