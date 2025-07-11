@@ -11,19 +11,19 @@ export default function TransactionForm({ onAddTransaction }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!form.name || !form.amount || !form.category) return;
-        onAddTransaction({
+        onAddTransaction(({
             id: Date.now(),
             name: form.name,
             amount: parseFloat(form.amount),
             category: form.category
-        })
+        }))
         setForm({ name: "", amount: "", category: "" })
     }
 
     return (
         <>
-            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row justify-between items-center gap-9 py-6">
-                <div className='flex flex-col gap-4 w-full '>
+            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row justify-center gap-9 py-6">
+                <div className='flex flex-col gap-3 w-full '>
                     <div>
                         <label className="block text-sm xl:text-base 2xl:text-md font-medium text-gray-700">Nama Transaksi</label>
                         <input
@@ -46,7 +46,7 @@ export default function TransactionForm({ onAddTransaction }) {
                     </div>
                 </div>
 
-                <div className='flex flex-col w-full gap-9 -mt-5 md:-mt-0'>
+                <div className='flex flex-col w-full gap-9 lg:gap-9 xl:gap-10'>
                     <div >
                         <label className="block text-sm xl:text-base 2xl:text-md font-medium text-gray-700">Kategori</label>
                         <input
@@ -58,12 +58,14 @@ export default function TransactionForm({ onAddTransaction }) {
                             className="block w-full text-slate-600 text-sm xl:text-base 2xl:text-md mt-1 px-3 py-2 rounded-md border border-gray-300 shadow-sm focus:ring-emerald-500 focus:border-emerald-500 outline-none "
                         />
                     </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-emerald-600 text-white py-[6px] md:py-2 rounded-md hover:bg-emerald-700 transition"
-                    >
-                        Tambah Transaksi
-                    </button>
+                    <div className='w-full flex flex-col'>
+                        <button
+                            type="submit"
+                            className="text-sm xl:text-base font-bold bg-emerald-600 text-white py-[6px] md:py-2 rounded-md hover:bg-emerald-700 transition"
+                        >
+                            Tambah Transaksi
+                        </button>
+                    </div>
                 </div>
 
             </form>

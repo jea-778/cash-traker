@@ -8,7 +8,7 @@ function App() {
   const [filter, setFilter] = useState("")
   const [transactions, setTransactions] = useState(() => {
     const saveTransaction = localStorage.getItem("Transaction")
-    return saveTransaction ? JSON.parse(saveTransaction) : []
+    return JSON.parse(saveTransaction) || []
   });
 
   useEffect(() => {

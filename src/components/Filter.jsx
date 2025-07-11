@@ -3,7 +3,7 @@ export default function Filter({ filter, setFilter }) {
     return (
         <div className="relative my-3">
             <svg className="md:w-[10px] h-[6px] lg:w-[13px] lg:h-2 cursor-pointer absolute z-auto top-5 right-5" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.07602 0.589844L6.66602 5.16984L11.256 0.589844L12.666 1.99984L6.66602 7.99984L0.666016 1.99984L2.07602 0.589844Z" fill="#333333" fill-opacity="0.68" />
+                <path d="M2.07602 0.589844L6.66602 5.16984L11.256 0.589844L12.666 1.99984L6.66602 7.99984L0.666016 1.99984L2.07602 0.589844Z" fill="#333333" />
             </svg>
             <select
                 value={filter}
