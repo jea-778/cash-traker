@@ -4,20 +4,18 @@ A simple React app to track your cash flow — add, view, and manage your transa
 
 ## 🧠 Project Purpose
 
-This project is part of a **7-day challenge** to consistently build and understand a React-based financial tool:
+This project is part of a **7 day challenge but I finished it in 3 days** to consistently build and understand a React-based financial tool:
 
 - 📌 Day 1–2: Add transactions & display list
-- 📌 Day 3–4: Add category filter & total expense
-- 📌 Day 5: Persist to `localStorage`
-- 🐞 Day 6: Fix bugs, polish
-- 🔁 Day 7: Rebuild from scratch, no AI
+- 📌 Day 3–4: Add category filter & total expense and place to localStorage
+- 📌 Day 4: Build from scracth no AI and Finished
 
 ## 🛠️ Tech Stack
 
 - ⚛️ React (Vite)
 - 💨 Tailwind CSS
 - 🗂️ localStorage
-- 🚀 Deploy on Vercel
+- 🚀 Deploy on Netifly
 - 🧠 Brain by AI - ChatGPT
 
 ## ✨ Features
